@@ -1,9 +1,10 @@
 require.def('sampleapp/appui/sampleapp',
     [
         'antie/application',
-        'antie/widgets/container'
+        'antie/widgets/container',
+        'antie/widgets/componentcontainer'
     ],
-    function(Application, Container) {
+    function(Application, Container, ComponentContainer) {
     
         return Application.extend({
             init: function(appDiv, styleDir, imgDir, callback) {
@@ -24,7 +25,14 @@ require.def('sampleapp/appui/sampleapp',
             run: function() {
                 // Called from run() as we need the framework to be ready beforehand.
                 this._setRootContainer();
-                // Create maincontainer and add simple component to it
+                
+                // this doesn't work...
+                var headerContainer = this.addComponentContainer("headerContainer");
+                headerContainer.showComponent("sampleapp/appui/components/header");
+
+                // this works...
+                //this.addComponentContainer("headerContainer", "sampleapp/appui/components/header");
+
                 this.addComponentContainer("maincontainer", "sampleapp/appui/components/simple");
             }
         });     

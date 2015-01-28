@@ -1,10 +1,11 @@
 require.def("sampleapp/appui/components/simple",
     [
+        'antie/application',
         "antie/widgets/component",
         "antie/widgets/button",
         "antie/widgets/label"
     ],
-    function (Component, Button, Label) {
+    function (Application, Component, Button, Label) {
         
         // All components extend Component
         return Component.extend({
@@ -16,9 +17,10 @@ require.def("sampleapp/appui/components/simple",
                 this._super("simplecomponent");
                 
                 // Hello World
-                label = new Label("Hello World");
+                /*label = new Label("Hello World");
                 this._button = new Button();
-                this._button.appendChildWidget(label);
+                this._button.appendChildWidget(label);*/
+
                 
                 this.addEventListener("beforerender", function (ev) {
                     self._onBeforeRender(ev);
@@ -35,7 +37,7 @@ require.def("sampleapp/appui/components/simple",
             // Appending widgets on beforerender ensures they're still displayed
             // if the component is hidden and subsequently reinstated.
             _onBeforeRender: function () {
-                this.appendChildWidget(this._button);
+                //this.appendChildWidget(this._button);
             } 
         });
     }
