@@ -81,3 +81,98 @@ body {
     height: 1080px;
     /*background-image: url(some/image/url_1080.png); */
 }
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------- */
+/* CUSTOM STYLES                                                                */
+/* ---------------------------------------------------------------------------- */
+
+body {
+    font-family: Verdana;
+    color: white;
+}
+
+.headerComponent {
+    background: #fcfcfc url('../img/badger_drawing.jpg') top right no-repeat;
+    color: black;
+}
+
+.headerTitle {
+    display: block;
+    font-size: 40px;
+    padding: 20px;
+}
+.subtitle {
+    display: block;
+    font-size: 35px;
+    padding: 20px;
+}
+
+.mainMenuButton {
+    border: 1px solid lightgreen;
+    background: white;
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+}
+
+.mainMenuButton.buttonFocussed {
+    background: lightgreen;
+    border: 1px solid lightgreen;
+}
+
+
+.boxButton {
+    border: 5px solid transparent;
+    background: white;
+    color: black;
+    height: 200px;
+    width: 200px;
+    line-height: 200px;
+    text-align: center;
+    margin: 20px;
+}
+.boxButton.buttonFocussed {
+    border: 5px solid white;
+    background: lightgreen;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

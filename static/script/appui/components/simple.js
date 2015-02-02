@@ -2,10 +2,11 @@ require.def("sampleapp/appui/components/simple",
     [
         'antie/application',
         "antie/widgets/component",
-        "antie/widgets/button",
-        "antie/widgets/label"
+        "antie/widgets/horizontallist",
+        "antie/widgets/label",
+        "sampleapp/appui/widgets/menubutton",
     ],
-    function (Application, Component, Button, Label) {
+    function (Application, Component, HorizontalList, Label, MenuButton) {
         
         // All components extend Component
         return Component.extend({
@@ -13,32 +14,32 @@ require.def("sampleapp/appui/components/simple",
                 var self, label, button;
 
                 self = this;
-                // It is important to call the constructor of the superclass
                 this._super("simplecomponent");
-                
-                // Hello World
-                /*label = new Label("Hello World");
-                this._button = new Button();
-                this._button.appendChildWidget(label);*/
 
-                
-                this.addEventListener("beforerender", function (ev) {
-                    self._onBeforeRender(ev);
-                });
+                var titleLabel = new Label("This is another section");
+                titleLabel.addClass('subtitle');
 
-                // calls Application.ready() the first time the component is shown
-                // the callback removes itself once it's fired to avoid multiple calls.
-                this.addEventListener("aftershow", function appReady() {
-                    self.getCurrentApplication().ready();
-                    self.removeEventListener('aftershow', appReady);
-                });
+                this.appendChildWidget(titleLabel);
+
+
+                this.buttonList = new HorizontalList();
+
+                this.buttonOne = new MenuButton("Item One", "boxButton");
+                this.buttonTwo = new MenuButton("Item Two", "boxButton");
+                this.buttonThree = new MenuButton("Item Three", "boxButton");
+
+                this.buttonList.appendChildWidget(this.buttonOne);
+                this.buttonList.appendChildWidget(this.buttonTwo);
+                this.buttonList.appendChildWidget(this.buttonThree);
+
+                this.addEventListener("load", function(ev) { self._onLoad(ev); });
+
             },
 
-            // Appending widgets on beforerender ensures they're still displayed
-            // if the component is hidden and subsequently reinstated.
-            _onBeforeRender: function () {
-                //this.appendChildWidget(this._button);
-            } 
+            _onLoad: function(ev) {
+                // Called when component is first loaded.
+                this.appendChildWidget(this.buttonList);
+            },
         });
     }
 );
