@@ -6,9 +6,12 @@ require.def("sampleapp/appui/components/highlights",
         "antie/widgets/label",
         "antie/widgets/verticallist",
         "antie/widgets/horizontallist",
+        "antie/widgets/carousel",
         "sampleapp/appui/widgets/menubutton",
+        "sampleapp/appui/widgets/thecarousel",
+        "antie/widgets/carousel/keyhandlers/activatefirsthandler",
     ],
-    function (Component, KeyEvent, Button, Label, VerticalList, HorizontalList, MenuButton) {
+    function (Component, KeyEvent, Button, Label, VerticalList, HorizontalList, Carousel, MenuButton, TheCarousel, ActivateFirstHandler) {
         /**
          * <DESCRIPTION>
          * @name <APPNAME>.appui.components.<COMPONENT>
@@ -22,31 +25,23 @@ require.def("sampleapp/appui/components/highlights",
                 var self = this;
 
 
-                this.pageLayout = new VerticalList();
+                this.pageLayout = new Carousel("highlightsList", Carousel.orientations.VERTICAL);
 
+                this.carouselOne = new TheCarousel();
+                this.carouselTwo = new TheCarousel();
+                this.carouselThree = new TheCarousel();
+                this.carouselFour = new TheCarousel();
 
-                this.buttonList = new HorizontalList();
-                this.buttonListTwo = new HorizontalList();
+                this.pageLayout.appendChildWidget(this.carouselOne);
+                this.pageLayout.appendChildWidget(this.carouselTwo);
+                this.pageLayout.appendChildWidget(this.carouselThree);
+                this.pageLayout.appendChildWidget(this.carouselFour);
 
-                this.pageLayout.appendChildWidget(this.buttonList);
-                this.pageLayout.appendChildWidget(this.buttonListTwo);
-
-                this.buttonOne = new MenuButton("Item One", "boxButton");
-                this.buttonTwo = new MenuButton("Item Two", "boxButton");
-                this.buttonThree = new MenuButton("Item Three", "boxButton");
-
-                this.buttonList.appendChildWidget(this.buttonOne);
-                this.buttonList.appendChildWidget(this.buttonTwo);
-                this.buttonList.appendChildWidget(this.buttonThree);
-
-
-                this._buttonOne = new MenuButton("Item One", "boxButton");
-                this._buttonTwo = new MenuButton("Item Two", "boxButton");
-                this._buttonThree = new MenuButton("Item Three", "boxButton");
-
-                this.buttonListTwo.appendChildWidget(this._buttonOne);
-                this.buttonListTwo.appendChildWidget(this._buttonTwo);
-                this.buttonListTwo.appendChildWidget(this._buttonThree);
+                
+                var handler = new ActivateFirstHandler();
+                handler.setAnimationOptions({ skipAnim: false }); 
+                handler.attach(this.pageLayout);
+                
 
 
                 // Add component lifecycle event listeners

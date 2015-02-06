@@ -15,7 +15,7 @@ require.def("sampleapp/appui/components/header",
                 var self = this,
                     application = self.getCurrentApplication();
 
-                var titleLabel = new Label("TV App for Badgers");
+                var titleLabel = new Label("TV App Section Test");
                 titleLabel.addClass("headerTitle");
                 this.appendChildWidget(titleLabel);
 

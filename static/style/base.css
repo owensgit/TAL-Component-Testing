@@ -144,9 +144,35 @@ body {
 
 
 
-
-
-
+.carouselmask {
+    overflow: hidden;
+}
+.carouselwidgetstrip {
+    position: relative;
+    white-space: nowrap;
+}
+.carouselwidgetstrip.vertical > .carouselItem {
+   display: block;
+}
+.carouselwidgetstrip.horizontal > .carouselItem {
+    display: inline-block;
+}
+.basicCarouselItem {
+    border: 5px solid transparent;
+    background: white;
+    color: black;
+    display: block;
+    font-family: "Verdana";
+    height: 150px;
+    width: 150px;
+    line-height: 150px;
+    text-align: center;
+    margin: 10px; padding: 30px;
+}
+.basicCarouselItem.focus {
+    border: 5px solid white;
+    background: lightgreen;
+}
 
 
 

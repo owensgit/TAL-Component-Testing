@@ -4,7 +4,7 @@ require.def('sampleapp/appui/sampleapp',
         'antie/widgets/container',
         'antie/widgets/componentcontainer',
         "antie/widgets/verticallist",
-        'antie/events/keyevent'
+        'antie/events/keyevent',
     ],
     function(Application, Container, ComponentContainer, KeyEvent) {
     

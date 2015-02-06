@@ -4,13 +4,20 @@ require.def("sampleapp/appui/widgets/thecarousel",
 		"antie/widgets/button",
 		"antie/widgets/label",
 		"antie/events/keyevent",
+		"antie/widgets/carousel/keyhandlers/activatefirsthandler",
 	],
-	function (Carousel, Button, Label, KeyEvent) {
+	function (Carousel, Button, Label, KeyEvent, ActivateFirstHandler) {
 
 		return Carousel.extend({
 			
 			init: function (args) {
-				var self = this;
+				var self = this,
+					args = args || {};
+
+				args.id = args.id || null;
+
+				this.addClass("basicCarousel");
+
 
 				this._super(args.id, Carousel.orientations.HORIZONTAL);
 
@@ -32,15 +39,28 @@ require.def("sampleapp/appui/widgets/thecarousel",
 				item7.appendChildWidget(new Label("C Item 7"));
 				var item8 = new Button('item8');
 				item8.appendChildWidget(new Label("C Item 8"));
+				var item9 = new Button('item8');
+				item9.appendChildWidget(new Label("C Item 8"));
+				var item10 = new Button('item8');
+				item10.appendChildWidget(new Label("C Item 8"));
+				var item11 = new Button('item8');
+				item11.appendChildWidget(new Label("C Item 8"));
 
-				this.appendChildWidget(item1);
-				this.appendChildWidget(item2);
-				this.appendChildWidget(item3);
-				this.appendChildWidget(item4);
-				this.appendChildWidget(item5);
-				this.appendChildWidget(item6);
-				this.appendChildWidget(item7);
-				this.appendChildWidget(item8);
+				var items = [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11];
+
+				for (var i = 0; i < items.length; i = i + 1) {
+					items[i].addClass('basicCarouselItem');
+					this.appendChildWidget(items[i]);
+				}
+
+				var animOptions = {
+			    	skipAnim: false,
+			    	duration: 200,
+			    	easing: "swing"
+			    };
+				var handler = new ActivateFirstHandler();
+				handler.setAnimationOptions(animOptions); 
+                handler.attach(this);
 
 				/*this.addEventListener("keyup", function(evt) { 
 					console.log("Carousel key up", evt);
