@@ -12,7 +12,7 @@ A component container that houses a header component. This is the main menu. The
 A component container to which all main content is shown, using the `show` method of the `componentContainer`.
 
 
-## Focus switching between the header and main section
+### Focus switching between the header and main section
 
 In `staticscript/appui/sampleapp.js` there are some custom methods that handle focus management between the sections.
 
