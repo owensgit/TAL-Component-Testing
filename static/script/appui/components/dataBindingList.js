@@ -27,7 +27,7 @@ require.def("sampleapp/appui/components/dataBindingList",
                 self = this;
                 this._super("simplecomponent");
 
-                var titleLabel = new Label("Data bound horizontal list");
+                var titleLabel = new Label("Horizontal List with Data Binding");
                 titleLabel.addClass('subtitle');
                 this.appendChildWidget(titleLabel);
 

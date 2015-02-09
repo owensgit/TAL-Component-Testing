@@ -15,7 +15,7 @@ require.def("sampleapp/appui/components/dataBindingCarousels",
                 this._super("three");
                 var self = this;
 
-                var titleLabel = new Label("Data bound carousels");
+                var titleLabel = new Label("Carousel List with Data Binding");
                 titleLabel.addClass('subtitle');
                 this.appendChildWidget(titleLabel);
 
