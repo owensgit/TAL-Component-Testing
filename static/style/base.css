@@ -157,6 +157,11 @@ body {
 .carouselwidgetstrip.horizontal > .carouselItem {
     display: inline-block;
 }
+.carouselTitle {
+    font-size: 24px;
+    display: block;
+    padding: 20px 20px 0;
+}
 .basicCarouselItem {
     border: 5px solid transparent;
     background: white;

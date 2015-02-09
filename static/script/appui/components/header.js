@@ -21,19 +21,25 @@ require.def("sampleapp/appui/components/header",
 
                 this.mainMenu = new HorizontalList("mainMenu");
 
-                this.menuItemOne = new MenuButton("Item One");
-                this.menuItemTwo = new MenuButton("Item Two");
+                this.menuItemOne = new MenuButton("Data Bound Carousel List");
+                this.menuItemTwo = new MenuButton("Simple Horizontal List");
+                this.menuItemThree = new MenuButton("Stacked Carousels");
 
                 this.menuItemOne.addEventListener("select", function (evt) {
-                    application.mainContainer.show("sampleapp/appui/components/highlights");
+                    application.mainContainer.show("sampleapp/appui/components/three");
                 });
 
                 this.menuItemTwo.addEventListener("select", function (evt) {
                     application.mainContainer.show("sampleapp/appui/components/simple");
                 });
 
+                this.menuItemThree.addEventListener("select", function (evt) {
+                    application.mainContainer.show("sampleapp/appui/components/highlights");
+                });
+
                 this.mainMenu.appendChildWidget(this.menuItemOne);
                 this.mainMenu.appendChildWidget(this.menuItemTwo);
+                this.mainMenu.appendChildWidget(this.menuItemThree);
 
                 this.appendChildWidget(this.mainMenu);
 

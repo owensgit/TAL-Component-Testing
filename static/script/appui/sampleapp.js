@@ -41,7 +41,7 @@ require.def('sampleapp/appui/sampleapp',
                 this.mainContainer = new ComponentContainer("mainContainer");
                 this.getRootWidget().appendChildWidget(this.mainContainer);
 
-                this.mainContainer.show("sampleapp/appui/components/highlights");
+                this.mainContainer.show("sampleapp/appui/components/three");
                 
             },
 

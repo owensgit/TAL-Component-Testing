@@ -1,12 +1,13 @@
 require.def("sampleapp/appui/widgets/thecarousel", 
 	[
+		"antie/widgets/container",
 		"antie/widgets/carousel",
 		"antie/widgets/button",
 		"antie/widgets/label",
 		"antie/events/keyevent",
 		"antie/widgets/carousel/keyhandlers/activatefirsthandler",
 	],
-	function (Carousel, Button, Label, KeyEvent, ActivateFirstHandler) {
+	function (Container, Carousel, Button, Label, KeyEvent, ActivateFirstHandler) {
 
 		return Carousel.extend({
 			
@@ -21,7 +22,6 @@ require.def("sampleapp/appui/widgets/thecarousel",
 
 				this._super(args.id, Carousel.orientations.HORIZONTAL);
 
-				console.log(this);
 
 				var item1 = new Button('item1');
 				item1.appendChildWidget(new Label("C Item 1"));
@@ -52,6 +52,8 @@ require.def("sampleapp/appui/widgets/thecarousel",
 					items[i].addClass('basicCarouselItem');
 					this.appendChildWidget(items[i]);
 				}
+
+				
 
 				var animOptions = {
 			    	skipAnim: false,

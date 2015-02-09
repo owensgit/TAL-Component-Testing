@@ -8,10 +8,21 @@ require.def("sampleapp/appui/components/highlights",
         "antie/widgets/horizontallist",
         "antie/widgets/carousel",
         "sampleapp/appui/widgets/menubutton",
-        "sampleapp/appui/widgets/thecarousel",
-        "antie/widgets/carousel/keyhandlers/activatefirsthandler",
+        "sampleapp/appui/widgets/thecarousel2",
+        "antie/widgets/carousel/keyhandlers/activatefirsthandler"
     ],
-    function (Component, KeyEvent, Button, Label, VerticalList, HorizontalList, Carousel, MenuButton, TheCarousel, ActivateFirstHandler) {
+    function (
+        Component, 
+        KeyEvent, 
+        Button, 
+        Label, 
+        VerticalList, 
+        HorizontalList, 
+        Carousel, 
+        MenuButton, 
+        TheCarousel2, 
+        ActivateFirstHandler) {
+
         /**
          * <DESCRIPTION>
          * @name <APPNAME>.appui.components.<COMPONENT>
@@ -24,13 +35,16 @@ require.def("sampleapp/appui/components/highlights",
                 this._super("highlights");
                 var self = this;
 
+                var titleLabel = new Label("Stacked carousels");
+                titleLabel.addClass('subtitle');
+                this.appendChildWidget(titleLabel);
 
                 this.pageLayout = new Carousel("highlightsList", Carousel.orientations.VERTICAL);
 
-                this.carouselOne = new TheCarousel();
-                this.carouselTwo = new TheCarousel();
-                this.carouselThree = new TheCarousel();
-                this.carouselFour = new TheCarousel();
+                this.carouselOne = new TheCarousel2({id: "carousel1"});
+                this.carouselTwo = new TheCarousel2({id: "carousel2"});
+                this.carouselThree = new TheCarousel2({id: "carousel3"});
+                this.carouselFour = new TheCarousel2({id: "carousel4"});
 
                 this.pageLayout.appendChildWidget(this.carouselOne);
                 this.pageLayout.appendChildWidget(this.carouselTwo);
