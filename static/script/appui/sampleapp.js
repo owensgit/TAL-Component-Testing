@@ -29,22 +29,20 @@ require.def('sampleapp/appui/sampleapp',
                 // Called from run() as we need the framework to be ready beforehand.
                 this._setRootContainer();
                 
-                // this doesn't work...
-                //var headerContainer = this.addComponentContainer("headerContainer");
-                //headerContainer.showComponent("sampleapp/appui/components/header");
 
-                // this works...
+                // Add sections
+
                 this.headerContainer = this.addComponentContainer("headerContainer", "sampleapp/appui/components/header");
 
-                //this.mainContainer = this.addComponentContainer("mainContainer", "sampleapp/appui/components/simple");
+                this.mainContainer = this.addComponentContainer("mainContainer", "sampleapp/appui/components/dataBindingCarousels");
 
-                this.mainContainer = new ComponentContainer("mainContainer");
-                this.getRootWidget().appendChildWidget(this.mainContainer);
-
-                this.mainContainer.show("sampleapp/appui/components/three");
                 
             },
 
+            /*
+             *  Adds the event handlers moving focus from the headerContainer to mainContainer 
+             *  called inside the databindingsection component in the aftershow event
+             */
             _applyCustomEventHanders: function () {
 
                 var self = this;
@@ -66,6 +64,10 @@ require.def('sampleapp/appui/sampleapp',
                 });   
             },
 
+            /*
+             *  Gets and stores the KeyEvent information from withing the databindingsection component
+             *  for use in _applyCustomEventHanders above
+             */ 
             _getKeyEvents: function (KeyEvent) {
                 this.KeyEvent = KeyEvent;
             }

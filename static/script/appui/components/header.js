@@ -19,18 +19,20 @@ require.def("sampleapp/appui/components/header",
                 titleLabel.addClass("headerTitle");
                 this.appendChildWidget(titleLabel);
 
-                this.mainMenu = new HorizontalList("mainMenu");
 
+                // add menu items
+                this.mainMenu = new HorizontalList("mainMenu");
                 this.menuItemOne = new MenuButton("Data Bound Carousel List");
-                this.menuItemTwo = new MenuButton("Simple Horizontal List");
+                this.menuItemTwo = new MenuButton("Data Bound Horizontal List");
                 this.menuItemThree = new MenuButton("Stacked Carousels");
 
+
                 this.menuItemOne.addEventListener("select", function (evt) {
-                    application.mainContainer.show("sampleapp/appui/components/three");
+                    application.mainContainer.show("sampleapp/appui/components/dataBindingCarousels");
                 });
 
                 this.menuItemTwo.addEventListener("select", function (evt) {
-                    application.mainContainer.show("sampleapp/appui/components/simple");
+                    application.mainContainer.show("sampleapp/appui/components/dataBindingList");
                 });
 
                 this.menuItemThree.addEventListener("select", function (evt) {
