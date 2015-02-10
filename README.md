@@ -9,7 +9,7 @@ A component container that houses a header component. This is the main menu. The
 
 ### Main Section
 
-A component container to which all main content is shown, using the `show` method of the `componentContainer`.
+A component container to which all main content is shown, using the `show` method of the `mainContainer` component container class.
 
 
 ### Focus switching between the header and main section
