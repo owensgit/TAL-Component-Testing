@@ -1,5 +1,7 @@
 # TAL-Component-Testing
 
+TAL Docs: http://fmtvp.github.io/tal/getting-started/introducing-tal.html
+
 A basic TAL example app consisiting of the following:
 
 ### Header Section
